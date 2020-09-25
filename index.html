@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="perye">
-    <meta name="description" content="perye">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,6 +13,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
     <title>perye</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -25,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="perye" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
@@ -34,11 +37,11 @@
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper head-container">
+        <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                      <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">perye</span>
                 </a>
@@ -132,11 +135,12 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
-          <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">perye</div>
         <div class="logo-desc">
@@ -335,7 +339,7 @@
     }
 
     .carousel-control:hover {
-        background-color:rgba(0, 0, 0, .4);
+        background-color: rgba(0, 0, 0, .4);
     }
 
     .carousel-control i {
@@ -390,13 +394,14 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
 
             <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
+                <a href="#articles" class="waves-effect waves-light btn">
                     <i class="fa fa-angle-double-down"></i>开始阅读
                 </a>
 
@@ -451,19 +456,20 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/19.jpg');">
+                 style="background-image: url('/medias/featureimages/14.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">String、Long源码解析和面试题</div>
+                            <div class="title center-align">dubbo</div>
                             <div class="description center-align">
                                 
-                                    String不变性我们常听人说,HashMap的key建议使用不可变类,比如说 String 这种不可变类。这里说的不可变指的是类值一旦被初始化，就不能再被改变了，如果被修改，将会是新的类，我们写个 demo 来演示一下。
-String s
+                                    dubbodubbo简介Dubbo(读音[ˈdʌbəʊ])是阿里巴巴公司开源的一个高性能优秀的服务框架，使得应用可通过高性能的 RPC 实现服务的输出和输入功能，可以和Spring框架无缝集成。
+Dubbo是一款高性能、轻量级的开源Java
                                 
                             </div>
                             <div class="cover-btns">
-                                <a href="/posts/cf8c33bc/" class="waves-effect waves-light btn" target="_blank">
+                                <a href="/posts/37e41c9c/" class="waves-effect waves-light btn"
+                                   target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
                             </div>
@@ -478,16 +484,37 @@ String s
 <script>
     $(function () {
         let coverSlider = $('.carousel');
+
+        //用户触摸轮播自动 restartPlay 是否生效
+        let initUserPressedOrDraggedActive = false
+
+        //用户触摸轮播自动 restartPlay
+        function initUserPressedOrDragged(instance) {
+            setInterval(() => {
+                if (instance.pressed || instance.dragged) {
+                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
+                    restartPlay()
+                }
+            }, 1000)
+        }
+
         coverSlider.carousel({
             duration: Number('120'),
             fullWidth: true,
-            indicators: 'true' === 'true'
-        });
+            indicators: 'true' === 'true',
+            onCycleTo() {
+                if (!initUserPressedOrDraggedActive) {
+                    // console.log('initUserPressedOrDraggedActive')
+                    initUserPressedOrDragged(this)
+                    initUserPressedOrDraggedActive = true
+                }
+            },
+        })
 
         let carouselIntervalId;
         
         // Loop to call the next cover article picture.
-        let autoCarousel = function() {
+        let autoCarousel = function () {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
             }, 5000);
@@ -495,7 +522,7 @@ String s
         autoCarousel();
         
 
-        let restartPlay = function () {
+        function restartPlay() {
             
             clearInterval(carouselIntervalId);
             autoCarousel();
@@ -526,6 +553,20 @@ String s
             <div class="card">
                 <div class="card-content">
                     
+                        <div class="dream">
+    
+    <div class="title center-align">
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+        </div>
+    </div>
+</div>
+
+                    
 
                     
 
@@ -546,20 +587,22 @@ String s
     
     
     <div class="col s12" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/19.jpg')">
+        
+            <div class="post-card" style="background-image: url('/medias/featureimages/14.jpg')">
+            
             <div class="post-body">
                 <div class="post-categories">
                     
                         
-                            <a href="/categories/%E7%B2%BE%E8%AF%BBJava%E6%BA%90%E7%A0%81/" class="category">精读Java源码</a>
+                            <a href="/categories/Java/" class="category">Java</a>
                         
                     
                 </div>
-                <a href="/posts/cf8c33bc/">
-                    <h3 class="post-title">String、Long源码解析和面试题</h3>
+                <a href="/posts/37e41c9c/">
+                    <h3 class="post-title">dubbo</h3>
                 </a>
-                <p class="post-description">String不变性我们常听人说,HashMap的key建议使用不可变类,比如说 String 这种不可变类。这里说的不可变指的是类值一旦被初始化，就不能再被改变了，如果被</p>
-                <a href="/posts/cf8c33bc/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                <p class="post-description">dubbodubbo简介Dubbo(读音[ˈdʌbəʊ])是阿里巴巴公司开源的一个高性能优秀的服务框架，使得应用可通过高性能的 RPC 实现服务的输出和输入功能，可以和S</p>
+                <a href="/posts/37e41c9c/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -580,11 +623,60 @@ String s
 
     
 
-    
-
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/37e41c9c/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="dubbo">
+                            
+                            <span class="card-title">dubbo</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/dubbo/">
+                            <span class="chip bg-color">dubbo</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -601,8 +693,7 @@ String s
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                String不变性我们常听人说,HashMap的key建议使用不可变类,比如说 String 这种不可变类。这里说的不可变指的是类值一旦被初始化，就不能再被改变了，如果被修改，将会是新的类，我们写个 demo 来演示一下。
-String s
+                                
                             
                         </div>
                         <div class="publish-info">
@@ -665,12 +756,7 @@ String s
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                书籍推荐
-《SQL基础教程（第2版）》 （入门级）
-《高性能MySQL : 第3版》 (进阶)
-
-文字教程推荐
-SQL Tutorial （SQL语句学习,英文）、SQL Tutorial（SQL语句学习,中文）、SQL语句在线练习 （非常
+                                
                             
                         </div>
                         <div class="publish-info">
@@ -717,13 +803,7 @@ SQL Tutorial （SQL语句学习,英文）、SQL Tutorial（SQL语句学习,中�
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Collections 工具类和 Arrays 工具类常见方法CollectionsCollections 工具类常用方法:
-
-排序
-查找,替换操作
-同步控制(不推荐，需要线程安全的集合类型时请考虑使用 JUC 包下的并发集合)
-
-排序操作
+                                
                             
                         </div>
                         <div class="publish-info">
@@ -778,9 +858,7 @@ SQL Tutorial （SQL语句学习,英文）、SQL Tutorial（SQL语句学习,中�
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                final,static,this,super 关键字总结final 关键字final关键字主要用在三个地方：变量、方法、类。
-
-对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则
+                                
                             
                         </div>
                         <div class="publish-info">
@@ -821,15 +899,70 @@ SQL Tutorial （SQL语句学习,英文）、SQL Tutorial（SQL语句学习,中�
 
 
     <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2020</span>
-            <a href="http://perye.github.io" target="_blank">perye</a>
+            <a href="/about" target="_blank">perye</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.3k</span>&nbsp;字
+                class="white-color">14.8k</span>&nbsp;字
             
             
             
@@ -953,7 +1086,7 @@ SQL Tutorial （SQL语句学习,英文）、SQL Tutorial（SQL语句学习,中�
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-  searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -971,9 +1104,6 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
 
     <!-- Baidu Analytics -->
 
@@ -994,10 +1124,14 @@ $(function () {
 </script>
 
     
-      <script src="/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-      <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
     
 
     
@@ -1005,20 +1139,11 @@ $(function () {
     
 
     
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
-
-    
-      <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
-    
-
-    
-      <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://perye.github.io/"/>
-  <updated>2020-09-25T05:41:13.131Z</updated>
+  <updated>2020-09-25T06:39:49.444Z</updated>
   <id>http://perye.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>dubbo</title>
+    <link href="http://perye.github.io/posts/37e41c9c/"/>
+    <id>http://perye.github.io/posts/37e41c9c/</id>
+    <published>2020-09-25T05:49:36.000Z</published>
+    <updated>2020-09-25T06:39:49.444Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;dubbo&quot;&gt;&lt;a href=&quot;#dubbo&quot; class=&quot;headerlink&quot; title=&quot;dubbo&quot;&gt;&lt;/a&gt;dubbo&lt;/h1&gt;&lt;h2 id=&quot;dubbo简介&quot;&gt;&lt;a href=&quot;#dubbo简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="dubbo" scheme="http://perye.github.io/tags/dubbo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>String、Long源码解析和面试题</title>
     <link href="http://perye.github.io/posts/cf8c33bc/"/>
     <id>http://perye.github.io/posts/cf8c33bc/</id>
     <published>2020-02-04T03:06:12.000Z</published>
-    <updated>2020-09-25T05:41:13.131Z</updated>
+    <updated>2020-09-25T06:07:54.862Z</updated>
     
     <summary type="html">
     
@@ -116,7 +145,7 @@
     <link href="http://perye.github.io/posts/5c9587ce/"/>
     <id>http://perye.github.io/posts/5c9587ce/</id>
     <published>2020-01-08T07:57:31.000Z</published>
-    <updated>2020-02-11T06:45:07.000Z</updated>
+    <updated>2020-09-25T05:56:18.379Z</updated>
     
     <summary type="html">
     
