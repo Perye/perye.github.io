@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>perye</title>
+  
+  <subtitle>perye</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://perye.github.io/"/>
+  <updated>2020-02-11T06:45:07.000Z</updated>
+  <id>http://perye.github.io/</id>
+  
+  <author>
+    <name>perye</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 面试题</title>
+    <link href="http://perye.github.io/posts/302cc391/"/>
+    <id>http://perye.github.io/posts/302cc391/</id>
+    <published>2020-02-10T05:06:12.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ArrayList&quot;&gt;&lt;a href=&quot;#ArrayList&quot; class=&quot;headerlink&quot; title=&quot;ArrayList&quot;&gt;&lt;/a&gt;ArrayList&lt;/h2&gt;&lt;h3 id=&quot;扩容类问题&quot;&gt;&lt;a href=&quot;#扩容类问题&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://perye.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="面试" scheme="http://perye.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="源码" scheme="http://perye.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>String、Long源码解析和面试题</title>
+    <link href="http://perye.github.io/posts/cf8c33bc/"/>
+    <id>http://perye.github.io/posts/cf8c33bc/</id>
+    <published>2020-02-04T03:06:12.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h2&gt;&lt;h3 id=&quot;不变性&quot;&gt;&lt;a href=&quot;#不变性&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="精读Java源码" scheme="http://perye.github.io/categories/%E7%B2%BE%E8%AF%BBJava%E6%BA%90%E7%A0%81/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="面试" scheme="http://perye.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="源码" scheme="http://perye.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    
+      <category term="String" scheme="http://perye.github.io/tags/String/"/>
+    
+      <category term="Long" scheme="http://perye.github.io/tags/Long/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot基础配置</title>
+    <link href="http://perye.github.io/posts/f066a429/"/>
+    <id>http://perye.github.io/posts/f066a429/</id>
+    <published>2020-01-12T04:17:12.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;定制Banner&quot;&gt;&lt;a href=&quot;#定制Banner&quot; class=&quot;headerlink&quot; title=&quot;定制Banner&quot;&gt;&lt;/a&gt;定制Banner&lt;/h2&gt;&lt;p&gt;Spring
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://perye.github.io/tags/Spring/"/>
+    
+      <category term="SpringBoot" scheme="http://perye.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开启SpringBoot</title>
+    <link href="http://perye.github.io/posts/86b81b40/"/>
+    <id>http://perye.github.io/posts/86b81b40/</id>
+    <published>2020-01-12T03:10:52.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;开启SpringBoot&quot;&gt;&lt;a href=&quot;#开启SpringBoot&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://perye.github.io/tags/Spring/"/>
+    
+      <category term="SpringBoot" scheme="http://perye.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>什么是MySQL?</title>
+    <link href="http://perye.github.io/posts/11a4f145/"/>
+    <id>http://perye.github.io/posts/11a4f145/</id>
+    <published>2020-01-10T06:27:11.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;书籍推荐&quot;&gt;&lt;a href=&quot;#书籍推荐&quot; class=&quot;headerlink&quot; title=&quot;书籍推荐&quot;&gt;&lt;/a&gt;书籍推荐&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;《SQL基础教程（第2版）》 （入门级）&lt;/li&gt;
+&lt;li&gt;《高性能MySQL : 第3版》
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://perye.github.io/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://perye.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络</title>
+    <link href="http://perye.github.io/posts/e255a10a/"/>
+    <id>http://perye.github.io/posts/e255a10a/</id>
+    <published>2020-01-10T04:17:31.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-OSI与TCP-IP各层的结构与功能-都有哪些协议&quot;&gt;&lt;a href=&quot;#一-OSI与TCP-IP各层的结构与功能-都有哪些协议&quot; class=&quot;headerlink&quot; title=&quot;一 OSI与TCP/IP各层的结构与功能,都有哪些协议?&quot;&gt;&lt;/a&gt;一
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://perye.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="TCP" scheme="http://perye.github.io/tags/TCP/"/>
+    
+      <category term="UDP" scheme="http://perye.github.io/tags/UDP/"/>
+    
+      <category term="HTTP" scheme="http://perye.github.io/tags/HTTP/"/>
+    
+      <category term="HTTPS" scheme="http://perye.github.io/tags/HTTPS/"/>
+    
+      <category term="Cookie" scheme="http://perye.github.io/tags/Cookie/"/>
+    
+      <category term="Session" scheme="http://perye.github.io/tags/Session/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java集合框架常见面试题</title>
+    <link href="http://perye.github.io/posts/330a9fa/"/>
+    <id>http://perye.github.io/posts/330a9fa/</id>
+    <published>2020-01-10T01:45:56.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;剖析面试最常见问题之Java集合框架&quot;&gt;&lt;a href=&quot;#剖析面试最常见问题之Java集合框架&quot; class=&quot;headerlink&quot; title=&quot;剖析面试最常见问题之Java集合框架&quot;&gt;&lt;/a&gt;剖析面试最常见问题之Java集合框架&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="面试" scheme="http://perye.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="集合" scheme="http://perye.github.io/tags/%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LinkedList 简介</title>
+    <link href="http://perye.github.io/posts/943dbc0c/"/>
+    <id>http://perye.github.io/posts/943dbc0c/</id>
+    <published>2020-01-09T08:15:36.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;&lt;font face=&quot;楷体&quot; id=&quot;1&quot;&gt;简介&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;&lt;font
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="LinkedList" scheme="http://perye.github.io/tags/LinkedList/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HashMap 简介</title>
+    <link href="http://perye.github.io/posts/70f3ef08/"/>
+    <id>http://perye.github.io/posts/70f3ef08/</id>
+    <published>2020-01-09T07:56:40.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;HashMap 主要用来存放键值对，它基于哈希表的Map接口实现，是常用的Java集合之一。&lt;/p&gt;
+&lt;p&gt;JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）.JDK1.8
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="HashMap" scheme="http://perye.github.io/tags/HashMap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArrayList简介</title>
+    <link href="http://perye.github.io/posts/f7e30a8f/"/>
+    <id>http://perye.github.io/posts/f7e30a8f/</id>
+    <published>2020-01-09T02:06:52.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;ArrayList简介&quot;&gt;&lt;a href=&quot;#ArrayList简介&quot; class=&quot;headerlink&quot; title=&quot;ArrayList简介&quot;&gt;&lt;/a&gt;ArrayList简介&lt;/h3&gt;&lt;p&gt;ArrayList 的底层是数组队列，相当于动态数组。与 Java
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="ArrayList" scheme="http://perye.github.io/tags/ArrayList/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>final,static,this,super 关键字总结</title>
+    <link href="http://perye.github.io/posts/5c9587ce/"/>
+    <id>http://perye.github.io/posts/5c9587ce/</id>
+    <published>2020-01-08T07:57:31.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;final-static-this-super-关键字总结&quot;&gt;&lt;a href=&quot;#final-static-this-super-关键字总结&quot; class=&quot;headerlink&quot; title=&quot;final,static,this,super
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Collections 工具类和 Arrays 工具类常见方法</title>
+    <link href="http://perye.github.io/posts/eb1e983c/"/>
+    <id>http://perye.github.io/posts/eb1e983c/</id>
+    <published>2020-01-08T07:57:31.000Z</published>
+    <updated>2020-02-11T06:45:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Collections-工具类和-Arrays-工具类常见方法&quot;&gt;&lt;a href=&quot;#Collections-工具类和-Arrays-工具类常见方法&quot; class=&quot;headerlink&quot; title=&quot;Collections 工具类和 Arrays
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://perye.github.io/tags/Java/"/>
+    
+      <category term="Collections" scheme="http://perye.github.io/tags/Collections/"/>
+    
+      <category term="Arrays" scheme="http://perye.github.io/tags/Arrays/"/>
+    
+  </entry>
+  
+</feed>
