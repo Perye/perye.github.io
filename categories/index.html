@@ -389,11 +389,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" title="软件工具: 2">
+                <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" title="软件工具: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #E8F8F5;">软件工具
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -451,7 +451,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [1,4,1,2],
+                    value : [1,4,1,3],
                     name : '文章分类数量'
                 }
             ]
@@ -666,6 +666,12 @@ $(function () {
 </div>
 
 
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="别走!-perye",clearTimeout(st)):(document.title="perye",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>

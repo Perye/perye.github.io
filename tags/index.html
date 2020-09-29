@@ -460,10 +460,19 @@
                 </a>
                 
                 
+                <a href="/tags/IDEA/" title="IDEA: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="IDEA" style="background-color: #F9E79F;">IDEA
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/Markdown/" title="Markdown: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Markdown" style="background-color: #F9E79F;">Markdown
+                            data-tagname="Markdown" style="background-color: #F8F9F9;">Markdown
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -492,7 +501,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"MySQL","weight":1,"link":"/tags/MySQL/"},{"text":"Java","weight":5,"link":"/tags/Java/"},{"text":"时间操作","weight":1,"link":"/tags/时间操作/"},{"text":"Collections","weight":1,"link":"/tags/Collections/"},{"text":"Arrays","weight":1,"link":"/tags/Arrays/"},{"text":"dubbo","weight":1,"link":"/tags/dubbo/"},{"text":"String","weight":1,"link":"/tags/String/"},{"text":"Long","weight":1,"link":"/tags/Long/"},{"text":"源码","weight":1,"link":"/tags/源码/"},{"text":"面试","weight":1,"link":"/tags/面试/"},{"text":"GitHub","weight":1,"link":"/tags/GitHub/"},{"text":"Markdown","weight":1,"link":"/tags/Markdown/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"MySQL","weight":1,"link":"/tags/MySQL/"},{"text":"Java","weight":5,"link":"/tags/Java/"},{"text":"时间操作","weight":1,"link":"/tags/时间操作/"},{"text":"Collections","weight":1,"link":"/tags/Collections/"},{"text":"Arrays","weight":1,"link":"/tags/Arrays/"},{"text":"dubbo","weight":1,"link":"/tags/dubbo/"},{"text":"String","weight":1,"link":"/tags/String/"},{"text":"Long","weight":1,"link":"/tags/Long/"},{"text":"源码","weight":1,"link":"/tags/源码/"},{"text":"面试","weight":1,"link":"/tags/面试/"},{"text":"GitHub","weight":1,"link":"/tags/GitHub/"},{"text":"IDEA","weight":1,"link":"/tags/IDEA/"},{"text":"Markdown","weight":1,"link":"/tags/Markdown/"}], {
         autoResize: true
     });
 </script>
@@ -702,6 +711,12 @@ $(function () {
 </div>
 
 
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="别走!-perye",clearTimeout(st)):(document.title="perye",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>

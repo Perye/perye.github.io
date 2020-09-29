@@ -1479,6 +1479,12 @@ $(function () {
 </div>
 
 
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="别走!-perye",clearTimeout(st)):(document.title="perye",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>

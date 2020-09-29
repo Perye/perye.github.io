@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>IntelliJ IDEA查看类层次结构图</title>
+      <link href="/posts/ae8f6e78/"/>
+      <url>/posts/ae8f6e78/</url>
+      
+        <content type="html"><![CDATA[<p>IntelliJ IDEA查看类层次结构快捷键<br><code>Crtl + Alt + U</code><br><code>Crtl + Alt + Shift + U</code><br><code>Crtl + H</code></p><p>查看<code>Diagram</code>图形 的类层次结构图<br><code>Crtl + Alt + U</code>或 <code>Crtl + Alt + Shift + U</code></p><p>手动步骤，右键需要查看的类 -&gt; <code>Diagrams</code> -&gt; <code>Show Diagram Popup</code></p><p>然后就可以看到类的具体层次结构了</p><p><img src="../../../images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/IDEA/IDEA%E6%9F%A5%E7%9C%8B%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="IntelliJ IDEA查看类层次结构图"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java8时间常用操作</title>
       <link href="/posts/a8f5cf9e/"/>
       <url>/posts/a8f5cf9e/</url>
