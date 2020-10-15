@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-11
+                    2020-10-15
                 </div>
                 
 
@@ -526,14 +526,14 @@
 <h2 id="常见问题总结"><a href="#常见问题总结" class="headerlink" title="常见问题总结"></a>常见问题总结</h2><h3 id="什么是MySQL"><a href="#什么是MySQL" class="headerlink" title="什么是MySQL?"></a>什么是MySQL?</h3><p>MySQL 是一种关系型数据库，在Java企业级开发中非常常用，因为 MySQL 是开源免费的，并且方便扩展。阿里巴巴数据库系统也大量用到了 MySQL，因此它的稳定性是有保障的。MySQL是开放源代码的，因此任何人都可以在 GPL(General Public License) 的许可下下载并根据个性化的需要对其进行修改。MySQL的默认端口号是<strong>3306</strong>。</p>
 <h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><h4 id="一些常用命令"><a href="#一些常用命令" class="headerlink" title="一些常用命令"></a>一些常用命令</h4><p><strong>查看MySQL提供的所有存储引擎</strong></p>
 <pre class="line-numbers language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">show</span> engines<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="../../images/database/mysql/mysql-engines.png" alt="查看MySQL提供的所有存储引擎"></p>
+<p><img src="https://perye-1253375012.cos.ap-guangzhou.myqcloud.com/blog/mysql/mysql-engines.png" alt="查看MySQL提供的所有存储引擎"></p>
 <p>从上图我们可以查看出 MySQL 当前默认的存储引擎是InnoDB,并且在5.7版本所有的存储引擎中只有 InnoDB 是事务性存储引擎，也就是说只有 InnoDB 支持事务。</p>
 <p><strong>查看MySQL当前默认的存储引擎</strong></p>
 <p>我们也可以通过下面的命令查看默认的存储引擎。</p>
 <pre class="line-numbers language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'%storage_engine%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>查看表的存储引擎</strong></p>
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">table</span> <span class="token keyword">status</span> <span class="token operator">like</span> <span class="token string">"table_name"</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="../../images/database/mysql/%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E.png" alt="查看表的存储引擎"></p>
+<p><img src="https://perye-1253375012.cos.ap-guangzhou.myqcloud.com/blog/mysql/%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E.png" alt="查看表的存储引擎"></p>
 <h4 id="MyISAM和InnoDB区别"><a href="#MyISAM和InnoDB区别" class="headerlink" title="MyISAM和InnoDB区别"></a>MyISAM和InnoDB区别</h4><p>MyISAM是MySQL的默认数据库引擎（5.5版之前）。虽然性能极佳，而且提供了大量的特性，包括全文索引、压缩、空间函数等，但MyISAM不支持事务和行级锁，而且最大的缺陷就是崩溃后无法安全恢复。不过，5.5版本之后，MySQL引入了InnoDB（事务性数据库引擎），MySQL 5.5版本后默认的存储引擎为InnoDB。</p>
 <p>大多数时候我们使用的都是 InnoDB 存储引擎，但是在某些情况下使用 MyISAM 也是合适的比如读密集的情况下。（如果你不介意 MyISAM 崩溃恢复问题的话）。</p>
 <p><strong>两者的对比：</strong></p>
@@ -574,7 +574,7 @@
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> sql_no_cache <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> usr<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务?"></a>什么是事务?</h3><p><strong>事务是逻辑上的一组操作，要么都执行，要么都不执行。</strong></p>
 <p>事务最经典也经常被拿出来说例子就是转账了。假如小明要给小红转账1000元，这个转账会涉及到两个关键操作就是：将小明的余额减少1000元，将小红的余额增加1000元。万一在这两个操作之间突然出现错误比如银行系统崩溃，导致小明余额减少而小红的余额没有增加，这样就不对了。事务就是保证这两个关键操作要么都成功，要么都要失败。</p>
-<h3 id="事物的四大特性-ACID"><a href="#事物的四大特性-ACID" class="headerlink" title="事物的四大特性(ACID)"></a>事物的四大特性(ACID)</h3><p><img src="../../images/database/mysql/%E4%BA%8B%E5%8A%A1%E7%89%B9%E6%80%A7.png" alt="事物的特性"></p>
+<h3 id="事物的四大特性-ACID"><a href="#事物的四大特性-ACID" class="headerlink" title="事物的四大特性(ACID)"></a>事物的四大特性(ACID)</h3><p><img src="https://perye-1253375012.cos.ap-guangzhou.myqcloud.com/blog/mysql/%E4%BA%8B%E5%8A%A1%E7%89%B9%E6%80%A7.png" alt="事物的特性"></p>
 <ol>
 <li><strong>原子性（Atomicity）：</strong> 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；</li>
 <li><strong>一致性（Consistency）：</strong> 执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；</li>
@@ -670,14 +670,14 @@
 <h4 id="1-限定数据的范围"><a href="#1-限定数据的范围" class="headerlink" title="1. 限定数据的范围"></a>1. 限定数据的范围</h4><p>务必禁止不带任何限制数据范围条件的查询语句。比如：我们当用户在查询订单历史的时候，我们可以控制在一个月的范围内；</p>
 <h4 id="2-读-写分离"><a href="#2-读-写分离" class="headerlink" title="2. 读/写分离"></a>2. 读/写分离</h4><p>经典的数据库拆分方案，主库负责写，从库负责读；</p>
 <h4 id="3-垂直分区"><a href="#3-垂直分区" class="headerlink" title="3. 垂直分区"></a>3. 垂直分区</h4><p> <strong>根据数据库里面数据表的相关性进行拆分。</strong> 例如，用户表中既有用户的登录信息又有用户的基本信息，可以将用户表拆分成两个单独的表，甚至放到单独的库做分库。</p>
-<p> <strong>简单来说垂直拆分是指数据表列的拆分，把一张列比较多的表拆分为多张表。</strong> 如下图所示，这样来说大家应该就更容易理解了。<br> <img src="../../images/database/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9E%82%E7%9B%B4%E5%88%86%E5%8C%BA.png" alt="数据库垂直分区"></p>
+<p> <strong>简单来说垂直拆分是指数据表列的拆分，把一张列比较多的表拆分为多张表。</strong> 如下图所示，这样来说大家应该就更容易理解了。<br> <img src="https://perye-1253375012.cos.ap-guangzhou.myqcloud.com/blog/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9E%82%E7%9B%B4%E5%88%86%E5%8C%BA.png" alt="数据库垂直分区"></p>
 <ul>
 <li><strong>垂直拆分的优点：</strong> 可以使得列数据变小，在查询时减少读取的Block数，减少I/O次数。此外，垂直分区可以简化表的结构，易于维护。</li>
 <li><strong>垂直拆分的缺点：</strong> 主键会出现冗余，需要管理冗余列，并会引起Join操作，可以通过在应用层进行Join来解决。此外，垂直分区会让事务变得更加复杂；</li>
 </ul>
 <h4 id="4-水平分区"><a href="#4-水平分区" class="headerlink" title="4. 水平分区"></a>4. 水平分区</h4><p><strong>保持数据表结构不变，通过某种策略存储数据分片。这样每一片数据分散到不同的表或者库中，达到了分布式的目的。 水平拆分可以支撑非常大的数据量。</strong></p>
 <p> 水平拆分是指数据表行的拆分，表的行数超过200万行时，就会变慢，这时可以把一张的表的数据拆成多张表来存放。举个例子：我们可以将用户信息表拆分成多个用户信息表，这样就可以避免单一表数据量过大对性能造成影响。</p>
-<p><img src="../../images/database/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B0%B4%E5%B9%B3%E6%8B%86%E5%88%86.png" alt="数据库水平拆分"></p>
+<p><img src="https://perye-1253375012.cos.ap-guangzhou.myqcloud.com/blog/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B0%B4%E5%B9%B3%E6%8B%86%E5%88%86.png" alt="数据库水平拆分"></p>
 <p>水平拆分可以支持非常大的数据量。需要注意的一点是：分表仅仅是解决了单一表数据过大的问题，但由于表的数据还是在同一台机器上，其实对于提升MySQL并发能力没有什么意义，所以 <strong>水平拆分最好分库</strong> 。</p>
 <p>水平拆分能够 <strong>支持非常大的数据量存储，应用端改造也少</strong>，但 <strong>分片事务难以解决</strong>  ，跨节点Join性能较差，逻辑复杂。《Java工程师修炼之道》的作者推荐 <strong>尽量不要对数据进行分片，因为拆分会带来逻辑、部署、运维的各种复杂度</strong> ，一般的数据表在优化得当的情况下支撑千万以下的数据量是没有太大问题的。如果实在要分片，尽量选择客户端分片架构，这样可以减少一次和中间件的网络I/O。</p>
 <p><strong>下面补充一下数据库分片的两种常见方案：</strong></p>
