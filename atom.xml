@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://perye.github.io/"/>
-  <updated>2020-10-20T05:42:04.700Z</updated>
+  <updated>2020-10-20T06:08:40.138Z</updated>
   <id>http://perye.github.io/</id>
   
   <author>
@@ -17,11 +17,97 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>字符串中的第一个唯一字符-LeetCode</title>
+    <link href="http://perye.github.io/posts/750521b8/"/>
+    <id>http://perye.github.io/posts/750521b8/</id>
+    <published>2020-10-20T04:37:41.000Z</published>
+    <updated>2020-10-20T06:08:40.138Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/first-unique-character-in-a-string/&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://perye.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="哈希表" scheme="http://perye.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+      <category term="字符串" scheme="http://perye.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回文数-LeetCode</title>
+    <link href="http://perye.github.io/posts/8ee60ef7/"/>
+    <id>http://perye.github.io/posts/8ee60ef7/</id>
+    <published>2020-10-20T04:17:41.000Z</published>
+    <updated>2020-10-20T07:06:08.518Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/palindrome-number/&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://perye.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数学" scheme="http://perye.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>整数反转-LeetCode</title>
+    <link href="http://perye.github.io/posts/a19ce20c/"/>
+    <id>http://perye.github.io/posts/a19ce20c/</id>
+    <published>2020-10-20T03:47:41.000Z</published>
+    <updated>2020-10-20T06:47:35.080Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/reverse-integer/&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://perye.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数学" scheme="http://perye.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>两数之和-LeetCode</title>
     <link href="http://perye.github.io/posts/742bfcc5/"/>
     <id>http://perye.github.io/posts/742bfcc5/</id>
     <published>2020-10-20T03:37:41.000Z</published>
-    <updated>2020-10-20T05:42:04.700Z</updated>
+    <updated>2020-10-20T05:59:45.856Z</updated>
     
     <summary type="html">
     
@@ -40,9 +126,9 @@
       <category term="LeetCode" scheme="http://perye.github.io/categories/LeetCode/"/>
     
     
-      <category term="数组" scheme="http://perye.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
       <category term="哈希表" scheme="http://perye.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+      <category term="数组" scheme="http://perye.github.io/tags/%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   

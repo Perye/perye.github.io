@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="两数之和">
+    <meta name="keywords" content="整数反转">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>两数之和-LeetCode | perye</title>
+    <title>整数反转-LeetCode | perye</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">两数之和-LeetCode</h1>
+                    <h1 class="description center-align post-title">整数反转-LeetCode</h1>
                 </div>
             </div>
         </div>
@@ -445,12 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                <span class="chip bg-color">哈希表</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                <span class="chip bg-color">数组</span>
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
                             </a>
                         
                     </div>
@@ -488,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    240
+                    469
                 </div>
                 
 
@@ -511,39 +507,43 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <pre><code>来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/two-sum</code></pre><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那<strong>两个</strong>整数，并返回他们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定 nums = [2, 7, 11, 15], target = 9</p>
-<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
-<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
-                    result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
-                    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
+链接：https://leetcode-cn.com/problems/reverse-integer/</code></pre><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1:<br>输入: 123<br>输出: 321</p>
+<p>示例 2:<br>输入: -123<br>输出: -321</p>
+<p>示例 3:<br>输入: 120<br>输出: 21</p>
+<p>注意:</p>
+<p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−2<sup>31</sup>,  2<sup>31</sup> − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><h3 id="弹出和推入数字-amp-溢出前进行检查"><a href="#弹出和推入数字-amp-溢出前进行检查" class="headerlink" title="弹出和推入数字 &amp; 溢出前进行检查"></a>弹出和推入数字 &amp; 溢出前进行检查</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> rev <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> pop <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            x <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>rev <span class="token operator">></span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token operator">/</span><span class="token number">10</span> <span class="token operator">||</span> <span class="token punctuation">(</span>rev <span class="token operator">==</span> Integer<span class="token punctuation">.</span>MAX_VALUE <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">&amp;&amp;</span> pop <span class="token operator">></span> Integer<span class="token punctuation">.</span>MAX_VALUE <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>rev <span class="token operator">&lt;</span> Integer<span class="token punctuation">.</span>MIN_VALUE<span class="token operator">/</span><span class="token number">10</span> <span class="token operator">||</span> <span class="token punctuation">(</span>rev <span class="token operator">==</span> Integer<span class="token punctuation">.</span>MIN_VALUE <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">&amp;&amp;</span> pop <span class="token operator">&lt;</span> Integer<span class="token punctuation">.</span>MIN_VALUE <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            rev <span class="token operator">=</span> rev <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> pop<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rev<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>时间复杂度:O(n<sup>2</sup>)</p>
-<h3 id="一遍hash"><a href="#一遍hash" class="headerlink" title="一遍hash"></a>一遍hash</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">}</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>时间复杂度:O(n)</p>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>反转整数的方法可以与反转字符串进行类比。</p>
+<p>我们想重复“弹出”x的最后一位数字，并将它“推入”到 rev的后面。最后,rev将与x相反。</p>
+<p>要在没有辅助堆栈/数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//pop operation:</span>
+pop <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+x <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//push operation:</span>
+temp <span class="token operator">=</span> rev <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> pop<span class="token punctuation">;</span>
+rev <span class="token operator">=</span> temp<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是，这种方法很危险，因为当 <code>temp = rev*10+pop</code>时会导致溢出。<br>幸运的是，事先检查这个语句是否会导致溢出很容易。<br>为了便于解释，我们假设rev是正数。</p>
+<ol>
+<li>如果temp = rev*10+pop 导致溢出，那么一定有 rev&gt;=INTMAX/10。 </li>
+<li>如果 rev&gt;INTMAX/10,那么 temp = rev*10+pop 一定会溢出。</li>
+<li>如果 rev=INTMAX/10,那么只要 pop &gt; Integer.MAX_VALUE % 10 时，temp = rev*10+pop 就会溢出。</li>
+</ol>
+<p>当rev为负时可以应用类似的逻辑</p>
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度：O(log(x))，x中大约有 log<sub>10</sub>(x)位数字。<br>空间复杂度：O(1)。</p>
 
             </div>
             <hr/>
@@ -569,7 +569,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://perye.github.io/posts/742bfcc5/">http://perye.github.io/posts/742bfcc5/</a>
+                    <a href="http://perye.github.io/posts/a19ce20c/">http://perye.github.io/posts/a19ce20c/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,12 +607,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                    <span class="chip bg-color">哈希表</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                    <span class="chip bg-color">数组</span>
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
                                 </a>
                             
                         </div>
@@ -1047,13 +1043,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/a19ce20c/">
+                <a href="/posts/8ee60ef7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="整数反转-LeetCode">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="回文数-LeetCode">
                         
-                        <span class="card-title">整数反转-LeetCode</span>
+                        <span class="card-title">回文数-LeetCode</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1096,13 +1092,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/ae8f6e78/">
+                <a href="/posts/742bfcc5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="IntelliJ IDEA查看类层次结构图">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="两数之和-LeetCode">
                         
-                        <span class="card-title">IntelliJ IDEA查看类层次结构图</span>
+                        <span class="card-title">两数之和-LeetCode</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1113,14 +1109,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    软件工具
+                            <a href="/categories/LeetCode/" class="post-category">
+                                    LeetCode
                                 </a>
                             
                             
@@ -1130,8 +1126,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IDEA/">
-                        <span class="chip bg-color">IDEA</span>
+                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                        <span class="chip bg-color">哈希表</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">数组</span>
                     </a>
                     
                 </div>
