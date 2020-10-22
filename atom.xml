@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://perye.github.io/"/>
-  <updated>2020-10-20T09:42:41.688Z</updated>
+  <updated>2020-10-22T06:54:45.064Z</updated>
   <id>http://perye.github.io/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何从大量的 URL 中找出相同的 URL？</title>
+    <link href="http://perye.github.io/posts/c02dd6c9/"/>
+    <id>http://perye.github.io/posts/c02dd6c9/</id>
+    <published>2020-10-22T06:00:01.000Z</published>
+    <updated>2020-10-22T06:54:45.064Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;如何从大量的-URL-中找出相同的-URL？&quot;&gt;&lt;a href=&quot;#如何从大量的-URL-中找出相同的-URL？&quot; class=&quot;headerlink&quot; title=&quot;如何从大量的 URL 中找出相同的 URL？&quot;&gt;&lt;/a&gt;如何从大量的 URL 中找出相同的
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据" scheme="http://perye.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="大数据" scheme="http://perye.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="分治" scheme="http://perye.github.io/tags/%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="哈希" scheme="http://perye.github.io/tags/%E5%93%88%E5%B8%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何从大量数据中找出高频词？</title>
+    <link href="http://perye.github.io/posts/c02dd6c9/"/>
+    <id>http://perye.github.io/posts/c02dd6c9/</id>
+    <published>2020-10-22T06:00:01.000Z</published>
+    <updated>2020-10-22T07:07:07.255Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;如何从大量数据中找出高频词？&quot;&gt;&lt;a href=&quot;#如何从大量数据中找出高频词？&quot; class=&quot;headerlink&quot; title=&quot;如何从大量数据中找出高频词？&quot;&gt;&lt;/a&gt;如何从大量数据中找出高频词？&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据" scheme="http://perye.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="大数据" scheme="http://perye.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="分治" scheme="http://perye.github.io/tags/%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="哈希" scheme="http://perye.github.io/tags/%E5%93%88%E5%B8%8C/"/>
+    
+      <category term="小顶堆" scheme="http://perye.github.io/tags/%E5%B0%8F%E9%A1%B6%E5%A0%86/"/>
+    
+  </entry>
   
   <entry>
     <title>最长公共前缀-LeetCode</title>
@@ -272,9 +336,9 @@
       <category term="LeetCode" scheme="http://perye.github.io/categories/LeetCode/"/>
     
     
-      <category term="哈希表" scheme="http://perye.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
       <category term="数组" scheme="http://perye.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="哈希表" scheme="http://perye.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
   </entry>
   
@@ -310,7 +374,7 @@
     <link href="http://perye.github.io/posts/a8f5cf9e/"/>
     <id>http://perye.github.io/posts/a8f5cf9e/</id>
     <published>2020-09-27T08:18:22.000Z</published>
-    <updated>2020-09-27T09:00:49.618Z</updated>
+    <updated>2020-10-22T07:08:22.177Z</updated>
     
     <summary type="html">
     
@@ -394,7 +458,7 @@
     <link href="http://perye.github.io/posts/37e41c9c/"/>
     <id>http://perye.github.io/posts/37e41c9c/</id>
     <published>2020-09-25T05:49:36.000Z</published>
-    <updated>2020-10-15T05:46:46.767Z</updated>
+    <updated>2020-10-22T07:08:22.214Z</updated>
     
     <summary type="html">
     
