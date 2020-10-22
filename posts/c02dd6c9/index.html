@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何从大量数据中找出高频词？, perye">
+    <meta name="keywords" content="如何从大量的 URL 中找出相同的 URL？, perye">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何从大量数据中找出高频词？ | perye</title>
+    <title>如何从大量的 URL 中找出相同的 URL？ | perye</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何从大量数据中找出高频词？</h1>
+                    <h1 class="description center-align post-title">如何从大量的 URL 中找出相同的 URL？</h1>
                 </div>
             </div>
         </div>
@@ -457,10 +457,6 @@
                                 <span class="chip bg-color">哈希</span>
                             </a>
                         
-                            <a href="/tags/%E5%B0%8F%E9%A1%B6%E5%A0%86/">
-                                <span class="chip bg-color">小顶堆</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -496,7 +492,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    534
+                    443
                 </div>
                 
 
@@ -518,16 +514,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="如何从大量数据中找出高频词？"><a href="#如何从大量数据中找出高频词？" class="headerlink" title="如何从大量数据中找出高频词？"></a>如何从大量数据中找出高频词？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一个 1GB 大小的文件，文件里每一行是一个词，每个词的大小不超过 16B，内存大小限制是 1MB，要求返回频数最高的 100 个词(Top 100)。</p>
-<h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><p>由于内存限制，我们依然无法直接将大文件的所有词一次读到内存中。因此，同样可以采用<strong>分治策略</strong>，把一个大文件分解成多个小文件，保证每个文件的大小小于 1MB，进而直接将单个小文件读取到内存中进行处理。</p>
+                <h2 id="如何从大量的-URL-中找出相同的-URL？"><a href="#如何从大量的-URL-中找出相同的-URL？" class="headerlink" title="如何从大量的 URL 中找出相同的 URL？"></a>如何从大量的 URL 中找出相同的 URL？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定 a、b 两个文件，各存放 50 亿个 URL，每个 URL 各占 64B，内存限制是 4G。请找出 a、b 两个文件共同的 URL。</p>
+<h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><p>每个 URL 占 64B，那么 50 亿个 URL 占用的空间大小约为 320GB。</p>
+<blockquote>
+<p>5, 000, 000, 000 _ 64B ≈ 5GB _ 64 = 320GB</p>
+</blockquote>
+<p>由于内存大小只有 4G，因此，我们不可能一次性把所有 URL 加载到内存中处理。对于这种类型的题目，一般采用<strong>分治策略</strong>，即：把一个文件中的 URL 按照某个特征划分为多个小文件，使得每个小文件大小不超过 4G，这样就可以把这个小文件读到内存中进行处理了。</p>
 <p><strong>思路如下</strong>：</p>
-<p>首先遍历大文件，对遍历到的每个词 x，执行 <code>hash(x) % 5000</code> ，将结果为 i 的词存放到文件 a<sub>i</sub> 中。遍历结束后，我们可以得到 5000 个小文件。每个小文件的大小为 200KB 左右。如果有的小文件大小仍然超过 1MB，则采用同样的方式继续进行分解。</p>
-<p>接着统计每个小文件中出现频数最高的 100 个词。最简单的方式是使用 HashMap 来实现。其中 key 为词，value 为该词出现的频率。具体方法是：对于遍历到的词 x，如果在 map 中不存在，则执行 <code>map.put(x, 1)</code> ；若存在，则执行 <code>map.put(x, map.get(x)+1)</code> ，将该词频数加 1。</p>
-<p>上面我们统计了每个小文件单词出现的频数。接下来，我们可以通过维护一个<strong>小顶堆</strong>来找出所有词中出现频数最高的 100 个。具体方法是：依次遍历每个小文件，构建一个<strong>小顶堆</strong>，堆大小为 100。如果遍历到的词的出现次数大于堆顶词的出现次数，则用新词替换堆顶的词，然后重新调整为<strong>小顶堆</strong>，遍历结束后，小顶堆上的词就是出现频数最高的 100 个词。</p>
+<p>首先遍历文件 a，对遍历到的 URL 求 <code>hash(URL) % 1000</code> ，根据计算结果把遍历到的 URL 存储到 a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>, …, a<sub>999</sub>，这样每个大小约为 300MB。使用同样的方法遍历文件 b，把文件 b 中的 URL 分别存储到文件 b<sub>0</sub>, b<sub>1</sub>, b<sub>2</sub>, …, b<sub>999</sub> 中。这样处理过后，所有可能相同的 URL 都在对应的小文件中，即 a<sub>0</sub> 对应 b<sub>0</sub>, …, a<sub>999</sub> 对应 b<sub>999</sub>，不对应的小文件不可能有相同的 URL。那么接下来，我们只需要求出这 1000 对小文件中相同的 URL 就好了。</p>
+<p>接着遍历 a<sub>i</sub>( <code>i∈[0,999]</code> )，把 URL 存储到一个 HashSet 集合中。然后遍历 b<sub>i</sub> 中每个 URL，看在 HashSet 集合中是否存在，若存在，说明这就是共同的 URL，可以把这个 URL 保存到一个单独的文件中。</p>
 <h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><ol>
 <li>分而治之，进行哈希取余；</li>
-<li>使用 HashMap 统计频数；</li>
-<li>求解<strong>最大</strong>的 TopN 个，用<strong>小顶堆</strong>；求解<strong>最小</strong>的 TopN 个，用<strong>大顶堆</strong>。</li>
+<li>对每个子文件进行 HashSet 统计。</li>
 </ol>
 
             </div>
@@ -602,10 +600,6 @@
                             
                                 <a href="/tags/%E5%93%88%E5%B8%8C/">
                                     <span class="chip bg-color">哈希</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B0%8F%E9%A1%B6%E5%A0%86/">
-                                    <span class="chip bg-color">小顶堆</span>
                                 </a>
                             
                         </div>
@@ -1040,19 +1034,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/c02dd6c9/">
+                <a href="/posts/6d03e4a6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="如何从大量的 URL 中找出相同的 URL？">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="如何从大量数据中找出高频词？">
                         
-                        <span class="card-title">如何从大量的 URL 中找出相同的 URL？</span>
+                        <span class="card-title">如何从大量数据中找出高频词？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何从大量的 URL 中找出相同的 URL？
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1084,6 +1078,10 @@
                     
                     <a href="/tags/%E5%93%88%E5%B8%8C/">
                         <span class="chip bg-color">哈希</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B0%8F%E9%A1%B6%E5%A0%86/">
+                        <span class="chip bg-color">小顶堆</span>
                     </a>
                     
                 </div>
@@ -1374,7 +1372,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.9k</span>&nbsp;字
+                class="white-color">27.2k</span>&nbsp;字
             
             
             

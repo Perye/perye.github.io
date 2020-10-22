@@ -4,6 +4,155 @@
   
     
     <entry>
+      <title>正则表达式</title>
+      <link href="/posts/2f57a694/"/>
+      <url>/posts/2f57a694/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>正则表达式用于文本内容的查找和替换。</p><p>正则表达式内置于其它语言或者软件产品中，它本身不是一种语言或者软件。</p><p><a href="https://regexr.com/" target="_blank" rel="noopener">正则表达式在线工具</a></p><h2 id="二、匹配单个字符"><a href="#二、匹配单个字符" class="headerlink" title="二、匹配单个字符"></a>二、匹配单个字符</h2><p><strong>.</strong>   可以用来匹配任何的单个字符，但是在绝大多数实现里面，不能匹配换行符；</p><p><strong>.</strong>   是元字符，表示它有特殊的含义，而不是字符本身的含义。如果需要匹配 . ，那么要用 \ 进行转义，即在 . 前面加上 \ 。</p><p>正则表达式一般是区分大小写的，但也有些实现不区分。</p><h2 id="三、匹配一组字符"><a href="#三、匹配一组字符" class="headerlink" title="三、匹配一组字符"></a>三、匹配一组字符</h2><p><strong>[ ]</strong>   定义一个字符集合；</p><p>0-9、a-z 定义了一个字符区间，区间使用 ASCII 码来确定，字符区间在 [ ] 中使用。</p><p><strong>-</strong>   只有在 [ ] 之间才是元字符，在 [ ] 之外就是一个普通字符；</p><p><strong>^</strong>   在 [ ] 中是取非操作。</p><p><strong>应用</strong>  </p><p>匹配以 abc 为开头，并且最后一个字母不为数字的字符串：</p><p><strong>正则表达式</strong>  </p><pre><code>abc[^0-9]</code></pre><p><strong>匹配结果</strong>  </p><ol><li><strong>abcd</strong>  </li><li>abc1</li><li>abc2</li></ol><h2 id="四、使用元字符"><a href="#四、使用元字符" class="headerlink" title="四、使用元字符"></a>四、使用元字符</h2><h3 id="匹配空白字符"><a href="#匹配空白字符" class="headerlink" title="匹配空白字符"></a>匹配空白字符</h3><table><thead><tr><th align="center">元字符</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">[\b]</td><td align="center">回退（删除）一个字符</td></tr><tr><td align="center">\f</td><td align="center">换页符</td></tr><tr><td align="center">\n</td><td align="center">换行符</td></tr><tr><td align="center">\r</td><td align="center">回车符</td></tr><tr><td align="center">\t</td><td align="center">制表符</td></tr><tr><td align="center">\v</td><td align="center">垂直制表符</td></tr></tbody></table><p>\r\n 是 Windows 中的文本行结束标签，在 Unix/Linux 则是 \n。</p><p>\r\n\r\n 可以匹配 Windows 下的空白行，因为它匹配两个连续的行尾标签，而这正是两条记录之间的空白行；</p><h3 id="匹配特定的字符"><a href="#匹配特定的字符" class="headerlink" title="匹配特定的字符"></a>匹配特定的字符</h3><h4 id="1-数字元字符"><a href="#1-数字元字符" class="headerlink" title="1. 数字元字符"></a>1. 数字元字符</h4><table><thead><tr><th align="center">元字符</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">\d</td><td align="center">数字字符，等价于 [0-9]</td></tr><tr><td align="center">\D</td><td align="center">非数字字符，等价于 [^0-9]</td></tr></tbody></table><h4 id="2-字母数字元字符"><a href="#2-字母数字元字符" class="headerlink" title="2. 字母数字元字符"></a>2. 字母数字元字符</h4><table><thead><tr><th align="center">元字符</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">\w</td><td align="center">大小写字母，下划线和数字，等价于 [a-zA-Z0-9_]</td></tr><tr><td align="center">\W</td><td align="center">对 \w 取非</td></tr></tbody></table><h4 id="3-空白字符元字符"><a href="#3-空白字符元字符" class="headerlink" title="3. 空白字符元字符"></a>3. 空白字符元字符</h4><table><thead><tr><th align="center">元字符</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">\s</td><td align="center">任何一个空白字符，等价于 [\f\n\r\t\v]</td></tr><tr><td align="center">\S</td><td align="center">对 \s 取非</td></tr></tbody></table><p>\x 匹配十六进制字符，\0 匹配八进制，例如 \xA 对应值为 10 的 ASCII 字符 ，即 \n。</p><h2 id="五、重复匹配"><a href="#五、重复匹配" class="headerlink" title="五、重复匹配"></a>五、重复匹配</h2><ul><li><strong>+</strong>   匹配 1 个或者多个字符</li><li><strong>\</strong>  * 匹配 0 个或者多个字符</li><li><strong>?</strong>   匹配 0 个或者 1 个字符</li></ul><p><strong>应用</strong>  </p><p>匹配邮箱地址。</p><p><strong>正则表达式</strong>  </p><pre><code>[\w.]+@\w+\.\w+</code></pre><p>[\w.] 匹配的是字母数字或者 . ，在其后面加上 + ，表示匹配多次。在字符集合 [ ] 里，. 不是元字符；</p><p><strong>匹配结果</strong>  </p><p><strong>abc.def<span>@</span>qq.com</strong>  </p><ul><li><strong>{n}</strong>   匹配 n 个字符</li><li><strong>{m,n}</strong>   匹配 m~n 个字符</li><li><strong>{m,}</strong>   至少匹配 m 个字符</li></ul><p>* 和 + 都是贪婪型元字符，会匹配尽可能多的内容。在后面加 ? 可以转换为懒惰型元字符，例如 *?、+? 和 {m,n}? 。</p><p><strong>正则表达式</strong>  </p><pre><code>a.+c</code></pre><p><strong>匹配结果</strong>  </p><p><strong>abcabcabc</strong>  </p><p>由于 + 是贪婪型的，因此 .+ 会匹配更可能多的内容，所以会把整个 abcabcabc 文本都匹配，而不是只匹配前面的 abc 文本。用懒惰型可以实现匹配前面的。</p><h2 id="六、位置匹配"><a href="#六、位置匹配" class="headerlink" title="六、位置匹配"></a>六、位置匹配</h2><h3 id="单词边界"><a href="#单词边界" class="headerlink" title="单词边界"></a>单词边界</h3><p><strong>\b</strong>   可以匹配一个单词的边界，边界是指位于 \w 和 \W 之间的位置；<strong>\B</strong> 匹配一个不是单词边界的位置。</p><p>\b 只匹配位置，不匹配字符，因此 \babc\b 匹配出来的结果为 3 个字符。</p><h3 id="字符串边界"><a href="#字符串边界" class="headerlink" title="字符串边界"></a>字符串边界</h3><p><strong>^</strong>   匹配整个字符串的开头，<strong>$</strong> 匹配结尾。</p><p>^ 元字符在字符集合中用作求非，在字符集合外用作匹配字符串的开头。</p><p>分行匹配模式（multiline）下，换行被当做字符串的边界。</p><p><strong>应用</strong>  </p><p>匹配代码中以 // 开始的注释行</p><p><strong>正则表达式</strong>  </p><pre><code>^\s*\/\/.*$</code></pre><div align="center"> <img src="https://perye-1253375012.cos.ap-guangzhou.myqcloud.com/blog/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/600e9c75-5033-4dad-ae2b-930957db638e.png"> </div><br><p><strong>匹配结果</strong>  </p><ol><li>public void fun() {</li><li>&nbsp;&nbsp;&nbsp;&nbsp;      <strong>// 注释 1</strong>  </li><li>&nbsp;&nbsp;&nbsp;&nbsp;    int a = 1;</li><li>&nbsp;&nbsp;&nbsp;&nbsp;    int b = 2;</li><li>&nbsp;&nbsp;&nbsp;&nbsp;      <strong>// 注释 2</strong>  </li><li>&nbsp;&nbsp;&nbsp;&nbsp;    int c = a + b;</li><li>}</li></ol><h2 id="七、使用子表达式"><a href="#七、使用子表达式" class="headerlink" title="七、使用子表达式"></a>七、使用子表达式</h2><p>使用   <strong>( )</strong>   定义一个子表达式。子表达式的内容可以当成一个独立元素，即可以将它看成一个字符，并且使用 * 等元字符。</p><p>子表达式可以嵌套，但是嵌套层次过深会变得很难理解。</p><p><strong>正则表达式</strong>  </p><pre><code>(ab){2,}</code></pre><p><strong>匹配结果</strong>  </p><p><strong>ababab</strong>  </p><p><strong>|</strong>   是或元字符，它把左边和右边所有的部分都看成单独的两个部分，两个部分只要有一个匹配就行。</p><p><strong>正则表达式</strong>  </p><pre><code>(19|20)\d{2}</code></pre><p><strong>匹配结果</strong>  </p><ol><li><strong>1900</strong>  </li><li><strong>2010</strong>  </li><li>1020</li></ol><p><strong>应用</strong>  </p><p>匹配 IP 地址。</p><p>IP 地址中每部分都是 0-255 的数字，用正则表达式匹配时以下情况是合法的：</p><ul><li>一位数字</li><li>不以 0 开头的两位数字</li><li>1 开头的三位数</li><li>2 开头，第 2 位是 0-4 的三位数</li><li>25 开头，第 3 位是 0-5 的三位数</li></ul><p><strong>正则表达式</strong>  </p><pre><code>((25[0-5]|(2[0-4]\d)|(1\d{2})|([1-9]\d)|(\d))\.){3}(25[0-5]|(2[0-4]\d)|(1\d{2})|([1-9]\d)|(\d))</code></pre><p><strong>匹配结果</strong>  </p><ol><li><strong>192.168.0.1</strong>  </li><li>00.00.00.00</li><li>555.555.555.555</li></ol><h2 id="八、回溯引用"><a href="#八、回溯引用" class="headerlink" title="八、回溯引用"></a>八、回溯引用</h2><p>回溯引用使用   <strong>\n</strong>   来引用某个子表达式，其中 n 代表的是子表达式的序号，从 1 开始。它和子表达式匹配的内容一致，比如子表达式匹配到 abc，那么回溯引用部分也需要匹配 abc 。</p><p><strong>应用</strong>  </p><p>匹配 HTML 中合法的标题元素。</p><p><strong>正则表达式</strong>  </p><p>\1 将回溯引用子表达式 (h[1-6]) 匹配的内容，也就是说必须和子表达式匹配的内容一致。</p><pre><code>&lt;(h[1-6])&gt;\w*?&lt;\/\1&gt;</code></pre><p><strong>匹配结果</strong>  </p><ol><li><strong>&lt;h1&gt;x&lt;/h1&gt;</strong>  </li><li><strong>&lt;h2&gt;x&lt;/h2&gt;</strong>  </li><li>&lt;h3&gt;x&lt;/h1&gt;</li></ol><h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p>需要用到两个正则表达式。</p><p><strong>应用</strong>  </p><p>修改电话号码格式。</p><p><strong>文本</strong>  </p><p>313-555-1234</p><p><strong>查找正则表达式</strong>  </p><pre><code>(\d{3})(-)(\d{3})(-)(\d{4})</code></pre><p><strong>替换正则表达式</strong>  </p><p>在第一个子表达式查找的结果加上 () ，然后加一个空格，在第三个和第五个字表达式查找的结果中间加上 - 进行分隔。</p><pre><code>($1) $3-$5</code></pre><p><strong>结果</strong>  </p><p>(313) 555-1234</p><h3 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h3><table><thead><tr><th align="center">元字符</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">\l</td><td align="center">把下个字符转换为小写</td></tr><tr><td align="center">\u</td><td align="center">把下个字符转换为大写</td></tr><tr><td align="center">\L</td><td align="center">把\L 和\E 之间的字符全部转换为小写</td></tr><tr><td align="center">\U</td><td align="center">把\U 和\E 之间的字符全部转换为大写</td></tr><tr><td align="center">\E</td><td align="center">结束\L 或者\U</td></tr></tbody></table><p><strong>应用</strong>  </p><p>把文本的第二个和第三个字符转换为大写。</p><p><strong>文本</strong>  </p><p>abcd</p><p><strong>查找</strong>  </p><pre><code>(\w)(\w{2})(\w)</code></pre><p><strong>替换</strong>  </p><pre><code>$1\U$2\E$3</code></pre><p><strong>结果</strong>  </p><p>aBCd</p><h2 id="九、前后查找"><a href="#九、前后查找" class="headerlink" title="九、前后查找"></a>九、前后查找</h2><p>前后查找规定了匹配的内容首尾应该匹配的内容，但是又不包含首尾匹配的内容。</p><p>向前查找使用   <strong>?=</strong>   定义，它规定了尾部匹配的内容，这个匹配的内容在 ?= 之后定义。所谓向前查找，就是规定了一个匹配的内容，然后以这个内容为尾部向前面查找需要匹配的内容。向后匹配用 ?&lt;= 定义（注: JavaScript 不支持向后匹配，Java 对其支持也不完善）。</p><p><strong>应用</strong>  </p><p>查找出邮件地址 @ 字符前面的部分。</p><p><strong>正则表达式</strong>  </p><pre><code>\w+(?=@)</code></pre><p><strong>结果</strong>  </p><p><strong>abc</strong>  @qq.com</p><p>对向前和向后查找取非，只要把 = 替换成 ! 即可，比如 (?=) 替换成 (?!) 。取非操作使得匹配那些首尾不符合要求的内容。</p><h2 id="十、嵌入条件"><a href="#十、嵌入条件" class="headerlink" title="十、嵌入条件"></a>十、嵌入条件</h2><h3 id="回溯引用条件"><a href="#回溯引用条件" class="headerlink" title="回溯引用条件"></a>回溯引用条件</h3><p>条件为某个子表达式是否匹配，如果匹配则需要继续匹配条件表达式后面的内容。</p><p><strong>正则表达式</strong>  </p><p>子表达式 (\() 匹配一个左括号，其后的 ? 表示匹配 0 个或者 1 个。 ?(1) 为条件，当子表达式 1 匹配时条件成立，需要执行 ) 匹配，也就是匹配右括号。</p><pre><code>(\()?abc(?(1)\))</code></pre><p><strong>结果</strong>  </p><ol><li><strong>(abc)</strong>  </li><li><strong>abc</strong>  </li><li>(abc</li></ol><h3 id="前后查找条件"><a href="#前后查找条件" class="headerlink" title="前后查找条件"></a>前后查找条件</h3><p>条件为定义的首尾是否匹配，如果匹配，则继续执行后面的匹配。注意，首尾不包含在匹配的内容中。</p><p><strong>正则表达式</strong>  </p><p> ?(?=-) 为前向查找条件，只有在以 - 为前向查找的结尾能匹配 \d{5} ，才继续匹配 -\d{4} 。</p><pre><code>\d{5}(?(?=-)-\d{4})</code></pre><p><strong>结果</strong>  </p><ol><li><strong>11111</strong>  </li><li>22222-</li><li><strong>33333-4444</strong>  </li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何从 5 亿个数中找出中位数？</title>
+      <link href="/posts/46b7ef0e/"/>
+      <url>/posts/46b7ef0e/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如何从-5-亿个数中找出中位数？"><a href="#如何从-5-亿个数中找出中位数？" class="headerlink" title="如何从 5 亿个数中找出中位数？"></a>如何从 5 亿个数中找出中位数？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>从 5 亿个数中找出中位数。数据排序后，位置在最中间的数就是中位数。当样本数为奇数时，中位数为 第 <code>(N+1)/2</code> 个数；当样本数为偶数时，中位数为 第 <code>N/2</code> 个数与第 <code>1+N/2</code> 个数的均值。</p><h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><p>如果这道题没有内存大小限制，则可以把所有数读到内存中排序后找出中位数。但是最好的排序算法的时间复杂度都为 <code>O(NlogN)</code> 。这里使用其他方法。</p><h4 id="方法一：双堆法"><a href="#方法一：双堆法" class="headerlink" title="方法一：双堆法"></a>方法一：双堆法</h4><p>维护两个堆，一个大顶堆，一个小顶堆。大顶堆中最大的数<strong>小于等于</strong>小顶堆中最小的数；保证这两个堆中的元素个数的差不超过 1。</p><p>若数据总数为<strong>偶数</strong>，当这两个堆建好之后，<strong>中位数就是这两个堆顶元素的平均值</strong>。当数据总数为<strong>奇数</strong>时，根据两个堆的大小，<strong>中位数一定在数据多的堆的堆顶</strong>。</p><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">MedianFinder</span> <span class="token punctuation">{</span>    <span class="token keyword">private</span> PriorityQueue<span class="token operator">&lt;</span>Integer<span class="token operator">></span> maxHeap<span class="token punctuation">;</span>    <span class="token keyword">private</span> PriorityQueue<span class="token operator">&lt;</span>Integer<span class="token operator">></span> minHeap<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/** initialize your data structure here. */</span>    <span class="token keyword">public</span> <span class="token function">MedianFinder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        maxHeap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>Comparator<span class="token punctuation">.</span><span class="token function">reverseOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        minHeap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>Integer<span class="token operator">:</span><span class="token operator">:</span>compareTo<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addNum</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>maxHeap<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> maxHeap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>            maxHeap<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>            minHeap<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">int</span> size1 <span class="token operator">=</span> maxHeap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> size2 <span class="token operator">=</span> minHeap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>size1 <span class="token operator">-</span> size2 <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            minHeap<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>maxHeap<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>size2 <span class="token operator">-</span> size1 <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            maxHeap<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>minHeap<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">findMedian</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> size1 <span class="token operator">=</span> maxHeap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> size2 <span class="token operator">=</span> minHeap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> size1 <span class="token operator">==</span> size2            <span class="token operator">?</span> <span class="token punctuation">(</span>maxHeap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> minHeap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span> <span class="token operator">/</span> <span class="token number">2</span>            <span class="token operator">:</span> <span class="token punctuation">(</span>size1 <span class="token operator">></span> size2 <span class="token operator">?</span> maxHeap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> minHeap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>见 LeetCode No.295：<a href="https://leetcode-cn.com/problems/find-median-from-data-stream/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-median-from-data-stream/</a></p></blockquote><p>以上这种方法，需要把所有数据都加载到内存中。当数据量很大时，就不能这样了，因此，这种方法<strong>适用于数据量较小的情况</strong>。5 亿个数，每个数字占用 4B，总共需要 2G 内存。如果可用内存不足 2G，就不能使用这种方法了，下面介绍另一种方法。</p><h4 id="方法二：分治法"><a href="#方法二：分治法" class="headerlink" title="方法二：分治法"></a>方法二：分治法</h4><p>分治法的思想是把一个大的问题逐渐转换为规模较小的问题来求解。</p><p>对于这道题，顺序读取这 5 亿个数字，对于读取到的数字 num，如果它对应的二进制中最高位为 1，则把这个数字写到 f1 中，否则写入 f0 中。通过这一步，可以把这 5 亿个数划分为两部分，而且 f0 中的数都大于 f1 中的数（最高位是符号位）。</p><p>划分之后，可以非常容易地知道中位数是在 f0 还是 f1 中。假设 f1 中有 1 亿个数，那么中位数一定在 f0 中，且是在 f0 中，从小到大排列的第 1.5 亿个数与它后面的一个数的平均值。</p><blockquote><p><strong>提示</strong>，5 亿数的中位数是第 2.5 亿与右边相邻一个数求平均值。若 f1 有一亿个数，那么中位数就是 f0 中从第 1.5 亿个数开始的两个数求得的平均值。</p></blockquote><p>对于 f0 可以用次高位的二进制继续将文件一分为二，如此划分下去，直到划分后的文件可以被加载到内存中，把数据加载到内存中以后直接排序，找出中位数。</p><blockquote><p><strong>注意</strong>，当数据总数为偶数，如果划分后两个文件中的数据有相同个数，那么中位数就是数据较小的文件中的最大值与数据较大的文件中的最小值的平均值。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 分治 </tag>
+            
+            <tag> 小顶堆 </tag>
+            
+            <tag> 大顶堆 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何查询最热门的查询串？</title>
+      <link href="/posts/c486ecd8/"/>
+      <url>/posts/c486ecd8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如何查询最热门的查询串？"><a href="#如何查询最热门的查询串？" class="headerlink" title="如何查询最热门的查询串？"></a>如何查询最热门的查询串？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>搜索引擎会通过日志文件把用户每次检索使用的所有查询串都记录下来，每个查询串的长度不超过 255 字节。</p><p>假设目前有 1000w 个记录（这些查询串的重复度比较高，虽然总数是 1000w，但如果除去重复后，则不超过 300w 个）。请统计最热门的 10 个查询串，要求使用的内存不能超过 1G。（一个查询串的重复度越高，说明查询它的用户越多，也就越热门。）</p><h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><p>每个查询串最长为 255B，1000w 个串需要占用 约 2.55G 内存，因此，我们无法将所有字符串全部读入到内存中处理。</p><h4 id="方法一：分治法"><a href="#方法一：分治法" class="headerlink" title="方法一：分治法"></a>方法一：分治法</h4><p>划分为多个小文件，保证单个小文件中的字符串能被直接加载到内存中处理，然后求出每个文件中出现次数最多的 10 个字符串；最后通过一个小顶堆统计出所有文件中出现最多的 10 个字符串。</p><p>方法可行，但不是最好。</p><h4 id="方法二：HashMap-法"><a href="#方法二：HashMap-法" class="headerlink" title="方法二：HashMap 法"></a>方法二：HashMap 法</h4><p>虽然字符串总数比较多，但去重后不超过 300w，因此，可以考虑把所有字符串及出现次数保存在一个 HashMap 中，所占用的空间为 300w*(255+4)≈777M（其中，4 表示整数占用的 4 个字节）。由此可见，1G 的内存空间完全够用。</p><p><strong>思路如下</strong>：</p><p>首先，遍历字符串，若不在 map 中，直接存入 map，value 记为 1；若在 map 中，则把对应的 value 加 1，这一步时间复杂度 <code>O(N)</code> 。</p><p>接着遍历 map，构建一个 10 个元素的小顶堆，若遍历到的字符串的出现次数大于堆顶字符串的出现次数，则进行替换，并将堆调整为小顶堆。</p><p>遍历结束后，堆中 10 个字符串就是出现次数最多的字符串。这一步时间复杂度 <code>O(Nlog10)</code> 。</p><h4 id="方法三：前缀树法"><a href="#方法三：前缀树法" class="headerlink" title="方法三：前缀树法"></a>方法三：前缀树法</h4><p>方法二使用了 HashMap 来统计次数，当这些字符串有大量相同前缀时，可以考虑使用前缀树来统计字符串出现的次数，树的结点保存字符串出现次数，0 表示没有出现。</p><p><strong>思路如下</strong>：</p><p>在遍历字符串时，在前缀树中查找，如果找到，则把结点中保存的字符串次数加 1，否则为这个字符串构建新结点，构建完成后把叶子结点中字符串的出现次数置为 1。</p><p>最后依然使用小顶堆来对字符串的出现次数进行排序。</p><h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><p>前缀树经常被用来统计字符串的出现次数。它的另外一个大的用途是字符串查找，判断是否有重复的字符串等。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 分治 </tag>
+            
+            <tag> HashMap </tag>
+            
+            <tag> 前缀树 </tag>
+            
+            <tag> 小顶堆 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何在大量的数据中找出不重复的整数？</title>
+      <link href="/posts/c1cd0179/"/>
+      <url>/posts/c1cd0179/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如何在大量的数据中找出不重复的整数？"><a href="#如何在大量的数据中找出不重复的整数？" class="headerlink" title="如何在大量的数据中找出不重复的整数？"></a>如何在大量的数据中找出不重复的整数？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在 2.5 亿个整数中找出不重复的整数。注意：内存不足以容纳这 2.5 亿个整数。</p><h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><h4 id="方法一：分治法"><a href="#方法一：分治法" class="headerlink" title="方法一：分治法"></a>方法一：分治法</h4><p>与前面的题目方法类似，先将 2.5 亿个数划分到多个小文件，用 HashSet/HashMap 找出每个小文件中不重复的整数，再合并每个子结果，即为最终结果。</p><h4 id="方法二：位图法"><a href="#方法二：位图法" class="headerlink" title="方法二：位图法"></a>方法二：位图法</h4><p><strong>位图</strong>，就是用一个或多个 bit 来标记某个元素对应的值，而键就是该元素。采用位作为单位来存储数据，可以大大节省存储空间。</p><p>位图通过使用位数组来表示某些元素是否存在。它可以用于快速查找，判重，排序等。</p><p>假设要对 <code>[0,7]</code> 中的 5 个元素 (6, 4, 2, 1, 5) 进行排序，可以采用位图法。0~7 范围总共有 8 个数，只需要 8bit，即 1 个字节。首先将每个位都置 0：</p><pre><code>0 0 0 0 0 0 0 0</code></pre><p>然后遍历 5 个元素，首先遇到 6，那么将下标为 6 的位的 0 置为 1；接着遇到 4，把下标为 4 的位 的 0 置为 1：</p><pre><code>0 0 0 0 1 0 1 0</code></pre><p>依次遍历，结束后，位数组是这样的：</p><pre><code>0 1 1 0 1 1 1 0</code></pre><p>每个为 1 的位，它的下标都表示了一个数：</p><pre><code>for i in range(8):    if bits[i] == 1:        print(i)</code></pre><p>这样其实就已经实现了排序。</p><p>对于整数相关的算法的求解，<strong>位图法</strong>是一种非常实用的算法。假设 int 整数占用 4B，即 32bit，那么我们可以表示的整数的个数为 2<sup>32</sup>。</p><p><strong>那么对于这道题</strong>，用 2 个 bit 来表示各个数字的状态：</p><ul><li>00 表示这个数字没出现过；</li><li>01 表示这个数字出现过一次（即为题目所找的不重复整数）；</li><li>10 表示这个数字出现了多次。</li></ul><p>那么这 2<sup>32</sup> 个整数，总共所需内存为 2<sup>32</sup>*2b=1GB。因此，当可用内存超过 1GB 时，可以采用位图法。假设内存满足位图法需求，进行下面的操作：</p><p>遍历 2.5 亿个整数，查看位图中对应的位，如果是 00，则变为 01，如果是 01 则变为 10，如果是 10 则保持不变。遍历结束后，查看位图，把对应位是 01 的整数输出即可。</p><h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><p><strong>判断数字是否重复的问题</strong>，位图法是一种非常高效的方法。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 分治 </tag>
+            
+            <tag> 位图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何从大量数据中找出高频词？</title>
+      <link href="/posts/6d03e4a6/"/>
+      <url>/posts/6d03e4a6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如何从大量数据中找出高频词？"><a href="#如何从大量数据中找出高频词？" class="headerlink" title="如何从大量数据中找出高频词？"></a>如何从大量数据中找出高频词？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一个 1GB 大小的文件，文件里每一行是一个词，每个词的大小不超过 16B，内存大小限制是 1MB，要求返回频数最高的 100 个词(Top 100)。</p><h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><p>由于内存限制，我们依然无法直接将大文件的所有词一次读到内存中。因此，同样可以采用<strong>分治策略</strong>，把一个大文件分解成多个小文件，保证每个文件的大小小于 1MB，进而直接将单个小文件读取到内存中进行处理。</p><p><strong>思路如下</strong>：</p><p>首先遍历大文件，对遍历到的每个词 x，执行 <code>hash(x) % 5000</code> ，将结果为 i 的词存放到文件 a<sub>i</sub> 中。遍历结束后，我们可以得到 5000 个小文件。每个小文件的大小为 200KB 左右。如果有的小文件大小仍然超过 1MB，则采用同样的方式继续进行分解。</p><p>接着统计每个小文件中出现频数最高的 100 个词。最简单的方式是使用 HashMap 来实现。其中 key 为词，value 为该词出现的频率。具体方法是：对于遍历到的词 x，如果在 map 中不存在，则执行 <code>map.put(x, 1)</code> ；若存在，则执行 <code>map.put(x, map.get(x)+1)</code> ，将该词频数加 1。</p><p>上面我们统计了每个小文件单词出现的频数。接下来，我们可以通过维护一个<strong>小顶堆</strong>来找出所有词中出现频数最高的 100 个。具体方法是：依次遍历每个小文件，构建一个<strong>小顶堆</strong>，堆大小为 100。如果遍历到的词的出现次数大于堆顶词的出现次数，则用新词替换堆顶的词，然后重新调整为<strong>小顶堆</strong>，遍历结束后，小顶堆上的词就是出现频数最高的 100 个词。</p><h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><ol><li>分而治之，进行哈希取余；</li><li>使用 HashMap 统计频数；</li><li>求解<strong>最大</strong>的 TopN 个，用<strong>小顶堆</strong>；求解<strong>最小</strong>的 TopN 个，用<strong>大顶堆</strong>。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 分治 </tag>
+            
+            <tag> 哈希 </tag>
+            
+            <tag> 小顶堆 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何从大量的 URL 中找出相同的 URL？</title>
       <link href="/posts/c02dd6c9/"/>
       <url>/posts/c02dd6c9/</url>
@@ -25,37 +174,6 @@
             <tag> 分治 </tag>
             
             <tag> 哈希 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>如何从大量数据中找出高频词？</title>
-      <link href="/posts/c02dd6c9/"/>
-      <url>/posts/c02dd6c9/</url>
-      
-        <content type="html"><![CDATA[<h2 id="如何从大量数据中找出高频词？"><a href="#如何从大量数据中找出高频词？" class="headerlink" title="如何从大量数据中找出高频词？"></a>如何从大量数据中找出高频词？</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一个 1GB 大小的文件，文件里每一行是一个词，每个词的大小不超过 16B，内存大小限制是 1MB，要求返回频数最高的 100 个词(Top 100)。</p><h3 id="解答思路"><a href="#解答思路" class="headerlink" title="解答思路"></a>解答思路</h3><p>由于内存限制，我们依然无法直接将大文件的所有词一次读到内存中。因此，同样可以采用<strong>分治策略</strong>，把一个大文件分解成多个小文件，保证每个文件的大小小于 1MB，进而直接将单个小文件读取到内存中进行处理。</p><p><strong>思路如下</strong>：</p><p>首先遍历大文件，对遍历到的每个词 x，执行 <code>hash(x) % 5000</code> ，将结果为 i 的词存放到文件 a<sub>i</sub> 中。遍历结束后，我们可以得到 5000 个小文件。每个小文件的大小为 200KB 左右。如果有的小文件大小仍然超过 1MB，则采用同样的方式继续进行分解。</p><p>接着统计每个小文件中出现频数最高的 100 个词。最简单的方式是使用 HashMap 来实现。其中 key 为词，value 为该词出现的频率。具体方法是：对于遍历到的词 x，如果在 map 中不存在，则执行 <code>map.put(x, 1)</code> ；若存在，则执行 <code>map.put(x, map.get(x)+1)</code> ，将该词频数加 1。</p><p>上面我们统计了每个小文件单词出现的频数。接下来，我们可以通过维护一个<strong>小顶堆</strong>来找出所有词中出现频数最高的 100 个。具体方法是：依次遍历每个小文件，构建一个<strong>小顶堆</strong>，堆大小为 100。如果遍历到的词的出现次数大于堆顶词的出现次数，则用新词替换堆顶的词，然后重新调整为<strong>小顶堆</strong>，遍历结束后，小顶堆上的词就是出现频数最高的 100 个词。</p><h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><ol><li>分而治之，进行哈希取余；</li><li>使用 HashMap 统计频数；</li><li>求解<strong>最大</strong>的 TopN 个，用<strong>小顶堆</strong>；求解<strong>最小</strong>的 TopN 个，用<strong>大顶堆</strong>。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大数据 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大数据 </tag>
-            
-            <tag> 分治 </tag>
-            
-            <tag> 哈希 </tag>
-            
-            <tag> 小顶堆 </tag>
             
         </tags>
       
